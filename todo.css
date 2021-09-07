@@ -22,7 +22,7 @@ header {
   margin-bottom: 20px;
 }
 main {
-  padding-bottom: 75px;
+  padding-bottom: 80px;
 }
 /* Form Styles */
 .note-form {
@@ -41,6 +41,17 @@ main {
 }
 #note {
   margin-top: 5px;
+}
+.create-btn {
+  border: 1px solid #fff;
+  border-radius: 15px;
+  font-size: 18px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+.create-btn:hover {
+  background-color: seagreen;
+  border: 1px solid seagreen;
 }
 /* Note Canvas Styles */
 #note-canvas {

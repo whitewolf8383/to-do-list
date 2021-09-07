@@ -1,21 +1,53 @@
-function Note(title, date, time, message ) {
-  id = uuid();
+let noteArray = [];
+
+// Create or set noteArray in localStorage
+if (!localStorage.getItem(noteArray)) localStorage.setItem('noteArray', noteArray);
+else noteArray = localStorage.getItem('noteArray');
+
+// Note prototype
+function Note(title, note, date, time ) {
+  this.id = uuid();
   this.title = title;
+  this.note = note;
   this.date = date;
   this.time = time;
-  this.message = message;
-  complete = false;
+  this.complete = false;
 }
-
+// Create a UUID for notes
 function uuid() {
-  return 'xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(item) {
+  return 'xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (item) => {
     let random = Math.random() * 16 | 0, id = item == 'x' ? random : (random & 0x3 | 0x8);
     return id.toString(16);
   });
 }
 
-console.log(uuid());
-console.log(new Note("testing", 01/02/1983, "2:12PM", "testing Message"));
+document.querySelector('.create-btn').addEventListener('click', () => {
+  let note = new Note(
+    document.querySelector('#title').value,
+    document.querySelector('#note').value,
+    document.querySelector('#date').value,
+    document.querySelector('#time').value
+  )
+  noteArray.push(note);
+  console.log(noteArray);
+})
+
+document.querySelector('.delete-btn').addEventListener('click', () => {
+  alert('Delete Button Clicked');
+})
+
+document.querySelector('.update-btn').addEventListener('click', () => {
+  alert('Update Button Clicked');
+})
+
+
+
+// Check Box
+document.querySelector('.checked').addEventListener('click', () => {
+  let status = document.querySelector('.checked').value;
+  alert(status);
+})
+
 
 
 // Dragable elements
