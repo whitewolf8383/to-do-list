@@ -33,7 +33,7 @@ main {
   height: 25px;
   margin: 5px;
 }
-#title, #note {
+#note {
   display: block;
   margin: auto;
   padding: 5px;
