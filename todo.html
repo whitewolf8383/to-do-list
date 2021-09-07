@@ -21,12 +21,55 @@
       <div>
         <form class="note-form">
           <input type="text" name="title" id="title" placeholder="Title of note.">
+          <textarea name="note" id="note" rows="3" placeholder="Add your note here"></textarea>
           <input type="date" name="date" id="date">
           <input type="time" name="time" id="time">
-          <textarea name="note" id="note" rows="3" placeholder="Add your note here"></textarea>
         </form>
       </div>
-      <div id="note-canvas">Notes Canvas</div>
+      <div id="note-canvas">
+        <h2>Notes Canvas</h2>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+          <div class="notes" id="uuid" draggable="true" ondragstart="drag(event)">
+            <p>Title</p>
+            <p>Note</p>
+            <div class="notes-div">
+              <p>Date</p>
+              <p>Time</p>
+              <input type="checkbox" />
+              <button class="delete-btn" type="button"><img src="./trashcan-icon.png"></button>
+            </div>
+            <button class="update-btn" type="button">Update</button>
+          </div>
+
+          <div class="notes" id="uuid2" draggable="true" ondragstart="drag(event)">
+            <p>Title2</p>
+            <p>Note2</p>
+            <div class="notes-div">
+              <p>Date2</p>
+              <p>Time2</p>
+              <input type="checkbox" />
+              <button class="delete-btn" type="button"><img src="./trashcan-icon.png"></button>
+            </div>
+            <button class="update-btn" type="button">Update</button>
+          </div>
+
+          <div class="notes" id="uuid3" draggable="true" ondragstart="drag(event)">
+            <p>Title3</p>
+            <p>Note3</p>
+            <div class="notes-div">
+              <p>Date3</p>
+              <p>Time3</p>
+              <input type="checkbox" />
+              <button class="delete-btn" type="button"><img src="./trashcan-icon.png"></button>
+            </div>
+            <button class="update-btn" type="button">Update</button>
+          </div>
+
+
+        </div>
+      </div>
     </main>
     <footer>
       <small>Keith J. Francis | 2021</small>

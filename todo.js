@@ -18,14 +18,17 @@ console.log(uuid());
 console.log(new Note("testing", 01/02/1983, "2:12PM", "testing Message"));
 
 
-/* drag and drop div setup
-* Allows Dropping
-* <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-*
-* Allows Dragging Object
-* <div id=uuid draggable="true" ondragstart="drag(event)">
-*   Title
-*   Note
-*   Date  Time
-* </div>
-*/
+// Dragable elements
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+}

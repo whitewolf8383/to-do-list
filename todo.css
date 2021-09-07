@@ -17,8 +17,12 @@ body {
 header {
   height: 60px;
   font-size: 32px;
+  letter-spacing: 3px;
   padding-top: 20px;
   margin-bottom: 20px;
+}
+main {
+  padding-bottom: 75px;
 }
 /* Form Styles */
 .note-form {
@@ -35,13 +39,57 @@ header {
   padding: 5px;
   width: 350px;
 }
-/* Note Styles */
-.note-canvas {
-  margin: auto;
+#note {
+  margin-top: 5px;
+}
+/* Note Canvas Styles */
+#note-canvas {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 0 15px 0;
+  margin: 20px auto;
   width: 525px;
+}
+#note-canvas h2 {
+  color: #000;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+/* Notes Styles */
+.notes {
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
+  margin: 10px auto;
+  padding: 5px;
+  width: 500px;
+}
+.notes p {
+  color: #000;
+  font-size: 20px;
+}
+.notes button {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 5px 2px 2px 2px;
+}
+.notes-div p{
+  display: inline-block;
+}
+.notes-div input {
+  height: 20px;
+  width: 20px;
+}
+.notes button:hover {
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+.notes img {
+  height: 25px;
 }
 /* Footer Styles */
 footer {
+  background-color: rgb(26, 25, 25);
   bottom: 0;
   left: 0;
   padding: 15px;
@@ -56,29 +104,6 @@ small {
   margin: 2px;
 }
 
-@media screen and (max-width: 1400px) {
-body {
-  background-color: rgb(238, 138, 134);
-}
-}
-
-@media screen and (max-width: 1200px) {
-body {
-  background-color: rgb(230, 124, 230);
-}
-}
-
-@media screen and (max-width: 992px) {
-body {
-  background-color: rgb(129, 68, 153);
-}
-}
-
-@media screen and (max-width: 768px) {
-body {
-  background-color: rgb(55, 44, 116);
-}
-}
 
 @media screen and (max-width: 575px) {
 body {
