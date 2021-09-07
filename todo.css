@@ -1,0 +1,87 @@
+/* CSS reset */
+* {
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+/* Main styles */
+body {
+  background-color: rgb(41, 40, 40);
+  color: #fff;
+  font-family: "Indie FLower";
+  text-align: center;
+}
+header {
+  height: 60px;
+  font-size: 32px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+/* Form Styles */
+.note-form {
+  margin: auto;
+  width: 500px;
+}
+.note-form input {
+  height: 25px;
+  margin: 5px;
+}
+#title, #note {
+  display: block;
+  margin: auto;
+  padding: 5px;
+  width: 350px;
+}
+/* Note Styles */
+.note-canvas {
+  margin: auto;
+  width: 525px;
+}
+/* Footer Styles */
+footer {
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+}
+small {
+  display: block;
+  font-family: "Raleway";
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 2px;
+}
+
+@media screen and (max-width: 1400px) {
+body {
+  background-color: rgb(238, 138, 134);
+}
+}
+
+@media screen and (max-width: 1200px) {
+body {
+  background-color: rgb(230, 124, 230);
+}
+}
+
+@media screen and (max-width: 992px) {
+body {
+  background-color: rgb(129, 68, 153);
+}
+}
+
+@media screen and (max-width: 768px) {
+body {
+  background-color: rgb(55, 44, 116);
+}
+}
+
+@media screen and (max-width: 575px) {
+body {
+  background-color: aqua;
+}
+}

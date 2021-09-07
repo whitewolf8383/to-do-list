@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Keith J Francis">
+    <meta name="description" content="A simple to do list app created as a course project for 
+      ICT4580, University of Denver, Uiversity College.">
+    <meta name="keywords" content="HTML, CSS, JavaScrip, todo app">
+    <title>To Do List</title>
+    <script defer src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>To Do List</h1>
+    </header>
+    <main>
+      <div>
+        <form class="note-form">
+          <input type="text" name="title" id="title" placeholder="Title of note.">
+          <input type="date" name="date" id="date">
+          <input type="time" name="time" id="time">
+          <textarea name="note" id="note" rows="3" placeholder="Add your note here"></textarea>
+        </form>
+      </div>
+      <div id="note-canvas">Notes Canvas</div>
+    </main>
+    <footer>
+      <small>Keith J. Francis | 2021</small>
+      <small>Created for ICT4580</small>
+      <small>University of Denver, University College</small>
+    </footer>
+  </body>
+</html>
