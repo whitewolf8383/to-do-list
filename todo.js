@@ -4,7 +4,6 @@ function Note( note, date = 'No Date', time = 'No Time' ) {
   this.note = note;
   this.date = date;
   this.time = time;
-  this.complete = false;
 }
 
 // Create a UUID for notes
@@ -28,8 +27,9 @@ function createNoteDisplay(item) {
   let timeP = document.createElement('p');
   timeP.innerHTML = time;
 
-  let checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
+  let checkbox = document.createElement('button');
+  checkbox.type = 'button';
+  checkbox.innerHTML = 'Complete';
   checkbox.className = 'checked';
   checkbox.id = `checked${id}`;
   checkbox.addEventListener('click', () => {
@@ -64,6 +64,9 @@ function createNoteDisplay(item) {
   let updateBtn = document.createElement('button');
   updateBtn.className = 'update-btn';
   updateBtn.innerHTML = 'Update';
+  updateBtn.addEventListener('click', () => {
+    document.querySelector('.update-form').style.display = "block";
+  })
 
   let notes = document.createElement('div');
   notes.className = 'notes';

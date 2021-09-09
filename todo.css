@@ -33,6 +33,9 @@ main {
   height: 25px;
   margin: 5px;
 }
+.update-form {
+  display:none;
+}
 #note {
   display: block;
   margin: auto;
@@ -104,7 +107,7 @@ main {
 }
 .checked {
   border: 1px solid #000;
-  margin-right: 20px;
+  margin: 0 20px 10px 0;
 }
 .completed {
   text-decoration: line-through;

@@ -26,23 +26,17 @@
         </form>
         <button class="create-btn">Create Note</button>
       </div>
+      <div class="update-form">
+        <form class="note-form">
+          <textarea name="note" id="note" rows="3" placeholder="Add your task here"></textarea>
+          <input type="date" name="date" id="date">
+          <input type="time" name="time" id="time">
+        </form>
+        <button class="update">Submit</button>
+      </div>
       <div id="note-canvas">
         <h2>Notes Canvas</h2>
-        <div ondrop="drop(event)" ondragover="allowDrop(event)">
-
-          <!--   Note Template
-          <div class="notes" id="uuid" draggable="true" ondragstart="drag(event)">
-            <p>Note</p>
-            <div class="notes-div">
-              <p>Date</p>
-              <p>Time</p>
-              <input class="checked" type="checkbox" />
-              <button class="delete-btn" type="button"><img src="./trashcan-icon.png"></button>
-            </div>
-            <button class="update-btn" type="button">Update</button>
-          </div> -->
-
-        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
       </div>
     </main>
     <footer>
