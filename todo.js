@@ -1,5 +1,5 @@
 // Note prototype
-function Note( note, date, time ) {
+function Note( note, date = 'No Date', time = 'No Time' ) {
   this.id = uuid();
   this.note = note;
   this.date = date;
@@ -17,34 +17,57 @@ function uuid() {
 
 // Create notes display
 function createNoteDisplay(item) {
+  let note = item.note;
+  let date = item.date;
+  let time = item.time;
+  let id = item.id
+
   let dateP = document.createElement('p');
-  dateP.innerHTML = item.date;
+  dateP.innerHTML = date;
+
   let timeP = document.createElement('p');
-  timeP.innerHTML = item.time;
+  timeP.innerHTML = time;
+
   let checkbox = document.createElement('input');
-  checkbox.type = checkbox;
-  checkbox.value = item.id;
+  checkbox.type = 'checkbox';
+  checkbox.className = 'checked';
+  checkbox.id = `checked${id}`;
+  checkbox.addEventListener('click', () => {
+    if(!noteTitle.classList.contains('completed'))
+      noteTitle.classList.add('completed');
+    else 
+      noteTitle.classList.remove('completed');
+  })
+
   let deleteBtn = document.createElement('button');
   deleteBtn.className = 'delete-btn';
-  deleteBtn.value = item.id;
+  deleteBtn.id = `delete${id}`;
+  deleteBtn.addEventListener('click', () => {
+    alert(`Delete Button Clicked _ ${id}`);
+  });
+
   let deleteBtnImg = document.createElement('img');
   deleteBtnImg.src = './trashcan-icon.png';
   deleteBtn.appendChild(deleteBtnImg);
+
   let notesDiv = document.createElement('div');
   notesDiv.className = 'notes-div';
   notesDiv.appendChild(dateP);
   notesDiv.appendChild(timeP);
   notesDiv.appendChild(checkbox);
   notesDiv.appendChild(deleteBtn);
+
   let noteTitle = document.createElement('p');
-  noteTitle.innerHTML = item.note;
+  noteTitle.innerHTML = note;
+  
+
   let updateBtn = document.createElement('button');
   updateBtn.className = 'update-btn';
-  updateBtn.value = item.id;
   updateBtn.innerHTML = 'Update';
+
   let notes = document.createElement('div');
   notes.className = 'notes';
-  notes.id = item.id;
+  notes.id = id;
   notes.draggable = 'true';
   notes.ondragstart = 'drag(event)';
   notes.appendChild(noteTitle);
@@ -53,14 +76,16 @@ function createNoteDisplay(item) {
   document.querySelector('#note-canvas').appendChild(notes);
 }
 
+
 // Set noteArray from localStorage item
 let noteArray = [];
 if (!localStorage.getItem('noteArray')) {
   localStorage.setItem('noteArray', JSON.stringify(noteArray));
 } else {
   noteArray = JSON.parse(localStorage.getItem('noteArray'));
+  noteArray.map(createNoteDisplay);
 }
-noteArray.map(createNoteDisplay);
+
 
 
 // Create new note
@@ -72,16 +97,13 @@ document.querySelector('.create-btn').addEventListener('click', () => {
   );
   noteArray.push(note);
   localStorage.setItem('noteArray', JSON.stringify(noteArray))
-  console.log(noteArray);
-
-  createNoteDisplay(note.id, note.note, note.date, note.time);
+  createNoteDisplay(note);
 })
+
+
+
 
 /*
-document.querySelector('.delete-btn').addEventListener('click', () => {
-  alert('Delete Button Clicked');
-})
-
 document.querySelector('.update-btn').addEventListener('click', () => {
   alert('Update Button Clicked');
 })
