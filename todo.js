@@ -59,14 +59,6 @@ function createNoteDisplay(item) {
 
   let noteTitle = document.createElement('p');
   noteTitle.innerHTML = note;
-  
-
-  let updateBtn = document.createElement('button');
-  updateBtn.className = 'update-btn';
-  updateBtn.innerHTML = 'Update';
-  updateBtn.addEventListener('click', () => {
-    document.querySelector('.update-form').style.display = "block";
-  })
 
   let notes = document.createElement('div');
   notes.className = 'notes';
@@ -75,7 +67,6 @@ function createNoteDisplay(item) {
   notes.ondragstart = 'drag(event)';
   notes.appendChild(noteTitle);
   notes.appendChild(notesDiv);
-  notes.appendChild(updateBtn);
   document.querySelector('#note-canvas').appendChild(notes);
 }
 
