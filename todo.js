@@ -14,7 +14,7 @@ function uuid() {
   });
 }
 
-// Create notes display
+// Create Notes and Display on Canvas
 function createNoteDisplay(item) {
   let note = item.note;
   let date = item.date;
@@ -83,7 +83,6 @@ function createNoteDisplay(item) {
   document.querySelector('#note-canvas').appendChild(notes);
 }
 
-
 // Set noteArray from localStorage item
 let noteArray = [];
 if (!localStorage.getItem('noteArray')) {
@@ -92,8 +91,6 @@ if (!localStorage.getItem('noteArray')) {
   noteArray = JSON.parse(localStorage.getItem('noteArray'));
   noteArray.map(createNoteDisplay);
 }
-
-
 
 // Create new note
 document.querySelector('.create-btn').addEventListener('click', () => {
@@ -106,23 +103,6 @@ document.querySelector('.create-btn').addEventListener('click', () => {
   localStorage.setItem('noteArray', JSON.stringify(noteArray))
   createNoteDisplay(note);
 })
-
-
-
-
-/*
-document.querySelector('.update-btn').addEventListener('click', () => {
-  alert('Update Button Clicked');
-})
-
-
-
-// Check Box
-document.querySelector('.checked').addEventListener('click', () => {
-  let status = document.querySelector('.checked').value;
-  alert(status);
-})
-
 
 
 // Dragable elements
@@ -140,4 +120,3 @@ function drop(event) {
   event.target.appendChild(document.getElementById(data));
 }
 
-*/
