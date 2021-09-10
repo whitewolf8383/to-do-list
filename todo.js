@@ -33,17 +33,30 @@ function createNoteDisplay(item) {
   checkbox.className = 'checked';
   checkbox.id = `checked${id}`;
   checkbox.addEventListener('click', () => {
-    if(!noteTitle.classList.contains('completed'))
+    if(!noteTitle.classList.contains('completed')){
       noteTitle.classList.add('completed');
-    else 
+      checkbox.innerHTML = 'Not Complete';
+    }
+    else {
       noteTitle.classList.remove('completed');
+      checkbox.innerHTML = 'Complete';
+    }
   })
 
   let deleteBtn = document.createElement('button');
   deleteBtn.className = 'delete-btn';
   deleteBtn.id = `delete${id}`;
   deleteBtn.addEventListener('click', () => {
-    alert(`Delete Button Clicked _ ${id}`);
+    let index = 0;
+    for (let i = 0; i < noteArray.length; i++){
+      if (noteArray[i].id === id){
+        index = i;
+        break;
+      }
+    }
+    noteArray.splice(index, 1);
+    localStorage.setItem('noteArray', JSON.stringify(noteArray));
+    location.reload();
   });
 
   let deleteBtnImg = document.createElement('img');
