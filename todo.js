@@ -73,11 +73,11 @@ function createNoteDisplay(item) {
   let noteTitle = document.createElement('p');
   noteTitle.innerHTML = note;
 
+  // Draggable Element
   let notes = document.createElement('div');
   notes.className = 'notes';
   notes.id = id;
   notes.draggable = 'true';
-  notes.ondragstart = 'drag(event)';
   notes.appendChild(noteTitle);
   notes.appendChild(notesDiv);
   document.querySelector('#note-canvas').appendChild(notes);
@@ -105,18 +105,41 @@ document.querySelector('.create-btn').addEventListener('click', () => {
 })
 
 
+
 // Dragable elements
-function allowDrop(event) {
-  event.preventDefault();
-}
+const notes = document.querySelectorAll('.notes')
+const container = document.querySelector('.container')
 
-function drag(event) {
-  event.dataTransfer.setData("text", event.target.id);
-}
+notes.forEach(note => {
+  note.addEventListener('dragstart', () => {
+    note.classList.add('dragging')
+  })
 
-function drop(event) {
-  event.preventDefault();
-  var data = event.dataTransfer.getData("text");
-  event.target.appendChild(document.getElementById(data));
-}
+  note.addEventListener('dragend', () => {
+    note.classList.remove('dragging')
+  })
+})
 
+container.addEventListener('dragover', event => {
+  event.preventDefault()
+  const afterElement = getDragAfterElement(container, e.clientY)
+  const note = document.querySelector('.dragging')
+  if (afterElement == null) {
+    container.appendChild(note)
+  } else {
+    container.insertBefore(note, afterElement)
+  }
+})
+
+function getDragAfterElement(container, y) {
+  const elements = [...container.querySelectorAll('.notes:not(.dragging)')]
+  return elements.reduce((closest, child) => {
+    const box = child.getBoundingClientRect()
+    const offset = y - box.top - box.height / 2
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child }
+    } else {
+      return closest
+    }
+  }, { offset: Number.NEGATIVE_INFINITY }).element
+}

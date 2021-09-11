@@ -74,6 +74,7 @@ main {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
+  cursor: move;
   font-family: 'Courier New', Courier, monospace;
   margin: 10px auto;
   padding: 5px;
