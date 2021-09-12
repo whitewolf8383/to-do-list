@@ -28,34 +28,7 @@
       </div>
       <div id="note-canvas">
         <h2>Notes Canvas</h2>
-        <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="notes" draggable="true" ondragstart="drag(event)"></div>
-        </div>
-
-
-
-        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
-        </div>
-
-
-        
-        function drag(ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
-        }
-        
-        function drop(ev) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          ev.target.appendChild(document.getElementById(data));
-        }
-
-
-
-
-
-
-
+        <div class="canvas" ondrop="drop(event)"></div>
       </div>
     </main>
     <footer>
