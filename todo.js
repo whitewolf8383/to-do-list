@@ -78,6 +78,8 @@ function createNoteDisplay(item) {
   notes.className = 'notes';
   notes.id = id;
   notes.draggable = 'true';
+  notes.ondragstart('drag(event)');
+  // class="notes" draggable="true" ondragstart="drag(event)"
   notes.appendChild(noteTitle);
   notes.appendChild(notesDiv);
   document.querySelector('#note-canvas').appendChild(notes);
@@ -108,21 +110,47 @@ document.querySelector('.create-btn').addEventListener('click', () => {
 
 // Dragable elements
 const notes = document.querySelectorAll('.notes')
-const container = document.querySelector('.container')
 
-notes.forEach(note => {
+function allowDrop(ev) {
+  ev.preventDefault();
+  addListeners();
+}
+
+function addListeners() {
   note.addEventListener('dragstart', () => {
     note.classList.add('dragging')
   })
-
   note.addEventListener('dragend', () => {
     note.classList.remove('dragging')
   })
-})
+}
+
+
+
+
+
+
+
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+
+
+const container = document.querySelector('.container')
+
+
 
 container.addEventListener('dragover', event => {
   event.preventDefault()
-  const afterElement = getDragAfterElement(container, e.clientY)
+  const afterElement = getDragAfterElement(container, event.clientY)
   const note = document.querySelector('.dragging')
   if (afterElement == null) {
     container.appendChild(note)
